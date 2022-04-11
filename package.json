@@ -1,0 +1,34 @@
+{
+  "name": "mini-vue",
+  "version": "1.0.0",
+  "description": "<!--  * @Date: 2022-04-11 16:12:29  * @LastEditors: 赵聪  * @LastEditTime: 2022-04-11 16:12:38  * @FilePath: /mini-vue/README.md --> # mini-vue 手写vue3核心API",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-jest": "^27.4.5",
+    "jest": "^27.4.5",
+    "vue": "^3.2.25",
+    "vue-jest": "^3.0.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.0.0",
+    "vite": "^2.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theDogIsMyself/mini-vue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theDogIsMyself/mini-vue/issues"
+  },
+  "homepage": "https://github.com/theDogIsMyself/mini-vue#readme"
+}
