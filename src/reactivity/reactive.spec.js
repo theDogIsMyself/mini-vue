@@ -1,12 +1,12 @@
 /*
  * @Date: 2022-04-11 16:18:30
  * @LastEditors: 赵聪
- * @LastEditTime: 2022-04-11 16:18:31
+ * @LastEditTime: 2022-04-12 16:30:34
  * @FilePath: /mini-vue/src/reactivity/reactive.spec.js
  */
 
-import { effect } from '../effect'
-import { reactive } from '../reactive'
+const {effect} = require('./util')
+const {reactive} = require('./reactive')
 
 describe('测试响应式', () => {
   test('reactive基本使用', () => {

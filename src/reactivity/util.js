@@ -1,8 +1,8 @@
 /*
  * @Date: 2022-04-11 18:35:53
  * @LastEditors: 赵聪
- * @LastEditTime: 2022-04-11 20:24:19
- * @FilePath: /mini-vue/src/reactivity/track.js
+ * @LastEditTime: 2022-04-12 16:22:22
+ * @FilePath: /mini-vue/src/reactivity/util.js
  */
 // track 把绑定的依赖放在一个大的 targetMap 中，每一个 target 对应一个depsMap，其中存储callback
 //
@@ -17,8 +17,9 @@
 
 //  }
 const targetMap = new WeakMap()
-const activeEffect = null
+let activeEffect = null
 function track(target, type, key) {
+
   let depsMap = targetMap.get(target)
   if (!depsMap) {
     targetMap.set(target, (depsMap = new Map()))
@@ -30,7 +31,7 @@ function track(target, type, key) {
   if (!deps.has(activeEffect) && activeEffect) {
     deps.add(activeEffect)
   }
-  deps.set(key, deps)
+  depsMap.set(key, deps)
 }
 
 function trigger(target, type, key) {
@@ -67,7 +68,7 @@ function effect(fn, options = {}) {
   return effectFn
 }
 
-export {
+module.exports =  {
   targetMap,
   track,
   trigger,

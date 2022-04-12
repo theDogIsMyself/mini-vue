@@ -1,13 +1,12 @@
 /*
  * @Date: 2022-04-11 16:20:19
  * @LastEditors: 赵聪
- * @LastEditTime: 2022-04-11 20:27:25
+ * @LastEditTime: 2022-04-12 16:22:01
  * @FilePath: /mini-vue/src/reactivity/mutableHandlers.js
  */
 
-import { isObject } from ".pnpm/registry.npmjs.org+@vue+shared@3.2.31/node_modules/@vue/shared"
-import { reactive } from "./reactive"
-import { trigger, track } from 'util'
+// const { reactive } = require("./reactive")
+const { trigger, track } = require("./util")
 // 只处理 getter 和 setter
 const get = createGetter()
 const set = createSetter()
@@ -16,12 +15,13 @@ function createGetter(shallow = false) {
   return function get(target, key, receiver) {
     // 使用反射获取值
     const res = Reflect.get(target, key, receiver)
+   
     // track 收集依赖
     track(target, "get", key)
     // 看是不是浅层代理
-    if (isObject(res)) {
-      return shallow ? res : reactive(res)
-    }
+    // if (typeof res === 'object' && res !== null) {
+    //   return shallow ? res : reactive(res)
+    // }
     return res
   }
 }
@@ -35,7 +35,10 @@ function createSetter() {
     return result
   }
 }
-export const mutableHandlers = {
-  get,
-  set
+
+module.exports = {
+  mutableHandlers: {
+    get,
+    set
+  }
 }
