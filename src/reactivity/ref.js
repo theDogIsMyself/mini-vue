@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-12 16:33:34
  * @LastEditors: 赵聪
- * @LastEditTime: 2022-04-12 16:45:43
+ * @LastEditTime: 2022-04-12 16:50:30
  * @FilePath: /mini-vue/src/reactivity/ref.js
  */
 const { reactive } = require("./reactive")
@@ -36,4 +36,7 @@ class RefImpl {
 }
 function convert(val) {
   return typeof val === 'object' && val !== null ? reactive(val) : val
+}
+module.exports = {
+  ref
 }
