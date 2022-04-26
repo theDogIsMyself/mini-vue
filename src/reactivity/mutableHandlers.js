@@ -1,7 +1,7 @@
 /*
  * @Date: 2022-04-11 16:20:19
  * @LastEditors: 赵聪
- * @LastEditTime: 2022-04-12 16:22:01
+ * @LastEditTime: 2022-04-12 16:55:31
  * @FilePath: /mini-vue/src/reactivity/mutableHandlers.js
  */
 
@@ -19,9 +19,9 @@ function createGetter(shallow = false) {
     // track 收集依赖
     track(target, "get", key)
     // 看是不是浅层代理
-    // if (typeof res === 'object' && res !== null) {
-    //   return shallow ? res : reactive(res)
-    // }
+    if (typeof res === 'object' && res !== null) {
+      return shallow ? res : reactive(res)
+    }
     return res
   }
 }
